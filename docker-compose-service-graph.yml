@@ -1,0 +1,12 @@
+---
+version: '3'
+services:
+  service-graph-node-finder:
+    image: expediadotcom/haystack-service-graph-node-finder:1d7d81f83d0570f1a289ba868073b7ac3d136e0f
+    environment:
+      HAYSTACK_PROP_KAFKA_STREAMS_BOOTSTRAP_SERVERS: kafka:9092
+      HAYSTACK_PROP_KAFKA_NODE_METADATA_TOPIC_REPLICATION_FACTOR: 1
+  service-graph-graph-builder:
+    image: expediadotcom/haystack-service-graph-graph-builder:1d7d81f83d0570f1a289ba868073b7ac3d136e0f
+    environment:
+      HAYSTACK_PROP_KAFKA_STREAMS_BOOTSTRAP_SERVERS: kafka:9092
