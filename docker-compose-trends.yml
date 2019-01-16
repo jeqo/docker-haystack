@@ -1,0 +1,11 @@
+---
+version: '3'
+services:
+  trends-span-timeseries-transformer:
+    image: expediadotcom/haystack-timeseries-aggregator:1.1
+    environment:
+      HAYSTACK_PROP_KAFKA_STREAMS_BOOTSTRAP_SERVERS: kafka:9092
+  trends-timeseries-aggregator:
+    image: expediadotcom/haystack-timeseries-aggregator:1.1
+    environment:
+      HAYSTACK_PROP_KAFKA_STREAMS_BOOTSTRAP_SERVERS: kafka:9092
