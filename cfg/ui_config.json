@@ -1,0 +1,17 @@
+{
+  "port": 8080,
+  "connectors": {
+    "traces": {
+      "connectorName": "haystack",
+      "haystackHost": "traces-reader",
+      "haystackPort": 8088,
+      "fieldKeys": [],
+      "grpcOptions": {
+        "grpc.max_receive_message_length": 52428800
+      }
+    },
+    "trends": {
+      "connectorName": "stub"
+    }
+  }
+}

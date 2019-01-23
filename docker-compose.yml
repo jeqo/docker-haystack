@@ -65,3 +65,12 @@ services:
       - 8125:8125/udp
     volumes:
       - ./cfg/statsdaemon.ini:/etc/statsdaemon.ini
+
+  pitchfork:
+    image: hotelsdotcom/pitchfork:1.5
+    ports:
+      - 18080:8080
+      - 9411:9411
+    environment:
+      PITCHFORK_FORWARDERS_HAYSTACK_KAFKA_ENABLED: "true"
+      PITCHFORK_FORWARDERS_HAYSTACK_KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
