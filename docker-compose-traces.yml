@@ -1,0 +1,16 @@
+---
+version: '3'
+services:
+  trace-backend:
+    image: expediadotcom/haystack-trace-backend-cassandra:5a5cb8c130ea0aacb0b2c0e1fc029c8309c4e421
+  trace-reader:
+    image: expediadotcom/haystack-trace-reader:5a5cb8c130ea0aacb0b2c0e1fc029c8309c4e421
+    environment:
+      HAYSTACK_PROP_BACKEND_CLIENT_HOST: trace-backend
+  trace-indexer:
+    image: expediadotcom/haystack-trace-indexer:5a5cb8c130ea0aacb0b2c0e1fc029c8309c4e421
+    environment:
+      HAYSTACK_PROP_HAYSTACK_GRAPHITE_HOST: graphite
+      HAYSTACK_PROP_KAFKA_CONSUMER_BOOTSTRAP_SERVERS: kafka:9092
+      HAYSTACK_PROP_KAFKA_PRODUCER_BOOTSTRAP_SERVERS: kafka:9092
+      HAYSTACK_PROP_BACKEND_CLIENT_HOST: trace-backend
